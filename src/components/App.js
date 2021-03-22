@@ -13,10 +13,10 @@ import SongPage from "./SongPage"
 function App() {
   const [songs, setSongs] = useState([]);
   const [favs, setFavs] = useState([]);
-  const USER_ID = 1
-  const userFavs = favs.filter(f => {
-    return f.user_id === USER_ID
-  })
+  // const USER_ID = 1
+  // const userFavs = favs.filter(f => {
+  //   return f.user_id === USER_ID
+  // })
 
   useEffect(() => {
     fetch("http://localhost:3000/songs")
@@ -34,20 +34,21 @@ function App() {
       });
   }, []);
 
-  const addFav = (user_id, song_id) => {
-    const newFav = {
-      user_id, song_id, note: ""
-    }
-    let updatedFavs = [...favs, newFav]
-    setFavs(updatedFavs)
-  }
+  // const addFav = (user_id, song_id) => {
+  //   const newFav = {
+  //     user_id, song_id, note: ""
+  //   }
+  //   let updatedFavs = [...favs, newFav]
+  //   setFavs(updatedFavs)
+  // }
 
   return (
     <div className="app">
       <Header />
       <Switch>
         <Route exact path="/home">
-          <Home addFav={addFav} userFavs={userFavs} userId={USER_ID} songs={songs}/>
+          {/* <Home addFav={addFav} userFavs={userFavs} userId={USER_ID} songs={songs}/> */}
+          <Home songs={songs}/>
         </Route>
         <Route exact path="/favorite_songs">
           <FavoriteSongs favs={favs} />

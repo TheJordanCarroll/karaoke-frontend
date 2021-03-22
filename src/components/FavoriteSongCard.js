@@ -4,14 +4,14 @@ function FavoriteSongCard({ fav }) {
     return (
         <div className="col-md-4">
             <div className="card">
-                {/* <img
+                <img
                     className="card-img-top"
                     src={fav.song.image}
-                /> */}
+                />
                 <div className="card-body">
-                    <h4 className="card-title">{fav.song_id}</h4>
+                    <h4 className="card-title">{fav.song.name}</h4>
                     <p className="card-text">
-                        Note: {fav.note}
+                        Range: {fav.song.lowest_note}-{fav.song.highest_note}
                     </p>   
                 </div>
             </div>
