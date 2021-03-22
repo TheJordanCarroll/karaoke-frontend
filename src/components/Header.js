@@ -13,10 +13,10 @@ function Header() {
             classname="logologo"
             border-radius= "5px;"
           /> */}
-        <a href="" className="navbar-brand" href="#">
+        {/* <a href="" className="navbar-brand" href="#">
           <img src="https://i.ibb.co/z5g62xh/Screen-Shot-2021-03-11-at-9-17-50-AM.png" alt="logo" width="auto"
             height="60rem" />
-        </a>
+        </a> */}
         <button
           className="navbar-toggler"
           type="button"

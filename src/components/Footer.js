@@ -6,8 +6,8 @@ function Footer() {
         <div className="container-fluid padding">
             <div className="row text-center">
                 <div className="col-md-4">
-                    <img src="https://i.ibb.co/z5g62xh/Screen-Shot-2021-03-11-at-9-17-50-AM.png" alt="logo" width="auto"
-            height="60rem" />
+                    {/* <img src="https://i.ibb.co/z5g62xh/Screen-Shot-2021-03-11-at-9-17-50-AM.png" alt="logo" width="auto"
+            height="60rem" /> */}
                     <hr className="light" />
                     <p>555-555-5555</p>
                     <p>email@myemail.com</p>
