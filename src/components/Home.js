@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SongCard from "./SongCard.js";
 
 // function Home({ addFav, userFavs, songs, userId }) {
-function Home({ songs }) {
+function Home({ songs, fav_songs, set_fav_songs }) {
     const [year, setYear] = useState(null);
     const [name, setName] = useState(null);
     // const userFavIds = userFavs.map(f => f.song_id)
@@ -39,7 +39,7 @@ function Home({ songs }) {
         {songsToDisplay.map((song) => {
             // const isFav = userFavIds.includes(song.id)
           // return <SongCard addFav={addFav} key={song.id} song={song} isFav={isFav} />;
-          return <SongCard key={song.id} song={song} />;
+          return <SongCard key={song.id} song={song} favs={fav_songs} set={set_fav_songs} />;
         })}
       </div>
     </div>
