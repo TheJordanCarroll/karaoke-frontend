@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
+import { Switch, Route, Link } from "react-router-dom";
 
 // function SongCard({ song, isFav, addFav }) {
 function SongCard({ song, favs, set }) {
@@ -52,7 +53,9 @@ function SongCard({ song, favs, set }) {
                     src={song.image}
                 />
                 <div className="card-body">
-                    <h4 className="card-title">{song.name}</h4>
+                    <h4 class="card-title">
+                        <Link to={`/songs/${id}`}>{song.name}</Link>
+                    </h4>
                     <p className="card-text">
                         Range: {song.lowest_note}-{song.highest_note}
                     </p>   

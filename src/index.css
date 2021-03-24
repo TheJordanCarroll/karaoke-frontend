@@ -61,6 +61,10 @@ html, body {
 .jumbotron {
   padding: 1rem;
   border-radius: 0;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+
 }
 .padding {
   padding-bottom: 2rem;
@@ -121,6 +125,12 @@ html, body {
 .fa-instagram:hover, 
 .fa-youtube:hover {
   color: #d5d5d5;
+}
+.filter {
+  width: 18%
+}
+.year {
+  width: 18%
 }
 footer {
   background-color: #3f3f3f;

@@ -1,7 +1,7 @@
 import React from "react";
 import FavoriteSongCard from "./FavoriteSongCard.js";
 
-function FavoriteSongs({ fav_songs, setFavSongs }) {
+function FavoriteSongs({ fav_songs, setFavSongs, onUpdateFav }) {
 
     // function handleDeleteFavorite(id) {
     //     const updatedFavoritesArray = fav_songs.filter(
@@ -36,6 +36,7 @@ function FavoriteSongs({ fav_songs, setFavSongs }) {
                         // onDeleteFavorite={handleDeleteFavorite}
                         setFavSongs={setFavSongs}
                         fav_songs={fav_songs}
+                        onUpdateFav={onUpdateFav}
                         />
                     );
                 })}

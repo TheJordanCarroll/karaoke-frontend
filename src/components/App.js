@@ -10,7 +10,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SongPage from "./SongPage"
 
-function App() {
+function App({ song }) {
   const [songs, setSongs] = useState([]);
   const [favSongs, setFavSongs] = useState([]);
   // const USER_ID = 1
@@ -34,6 +34,16 @@ function App() {
       });
   }, []);
 
+  function handleUpdateFav(updatedFav) {
+    const updatedFavsArray = favSongs.map((fav) => {
+      if(fav.id === updatedFav.id) {
+        return updatedFav;
+      } else {
+        return fav;
+      }
+    });
+      setFavSongs(updatedFavsArray);
+  }
   // const addFav = (user_id, song_id) => {
   //   const newFav = {
   //     user_id, song_id, note: ""
@@ -51,7 +61,7 @@ function App() {
           <Home fav_songs={favSongs} set_fav_songs={setFavSongs} songs={songs}/>
         </Route>
         <Route exact path="/favorite_songs">
-          <FavoriteSongs fav_songs={favSongs} setFavSongs={setFavSongs} />
+          <FavoriteSongs onUpdateFav={handleUpdateFav} fav_songs={favSongs} setFavSongs={setFavSongs} />
         </Route>
         <Route exact path="/record">
           <Record />
@@ -66,7 +76,7 @@ function App() {
           <Login />
         </Route>
         <Route exact path="/songs/:id">
-          <SongPage />
+          <SongPage song={song}/>
         </Route>
       </Switch>
       <Footer />
