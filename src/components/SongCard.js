@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, BrowserRouter as Router, useParams  } from "react-router-dom";
 
 // function SongCard({ song, isFav, addFav }) {
 function SongCard({ song, favs, set }) {
     const { id } = song;
+
     // const{song_id} = song
     const [isFavorited, setIsFavorited] = useState(false);
     const current_user_id = 1;
@@ -23,6 +24,9 @@ function SongCard({ song, favs, set }) {
     //     console.log(data)
     //   });
     // }
+
+    // console.log("this is the individual song", song)
+
     function toggleFav(e) {
         setIsFavorited(!isFavorited);
         handleSubmit(e);
@@ -54,11 +58,13 @@ function SongCard({ song, favs, set }) {
                 />
                 <div className="card-body">
                     <h4 class="card-title">
-                        <Link to={`/songs/${id}`}>{song.name}</Link>
+                        <Link song={song} to={`/songs/${id}`}>{song.name}</Link>
                     </h4>
                     <p className="card-text">
                         Range: {song.lowest_note}-{song.highest_note}
-                    </p>   
+                    </p>
+                    <p>Artist: {song.artist.name}</p>
+                    <p>Song: {song.genre.name}</p>
                 </div>
                 {/* <div
                         // href="#"

@@ -4,7 +4,6 @@ function noteToPitch(n){
   let result = null
     if(n.includes('b')){ // we check to see if the note has a "b" flat symbol, then deal with that situation
         let shiftedNote = n.replace('b', '') // we remove the flat, and then search up the remaining term
-        console.log(shiftedNote)
         result = fullRange.indexOf(shiftedNote) //notes start counting from 1, arrays from 0, BUT this time, we want the item right before
     }else{
 		result = fullRange.indexOf(n) + 1 // notes start counting from 1, arrays from 0, need to shift up by 1
