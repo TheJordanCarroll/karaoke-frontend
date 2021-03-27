@@ -1,31 +1,11 @@
 import React, { useState, useEffect} from "react";
 import { Switch, Route, Link, BrowserRouter as Router, useParams  } from "react-router-dom";
 
-// function SongCard({ song, isFav, addFav }) {
 function SongCard({ song, favs, set }) {
     const { id } = song;
 
-    // const{song_id} = song
     const [isFavorited, setIsFavorited] = useState(false);
     const current_user_id = 1;
-    // const createFavorite = () => {
-    //     const newFav = {
-    //         user_id: 1, song_id, note: ""
-    //     }
-    //     fetch("http://localhost:3000/favorite_songs", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(newFav),
-    // })
-    //   .then((r) => r.json())
-    //   .then((data) => {
-    //     console.log(data)
-    //   });
-    // }
-
-    // console.log("this is the individual song", song)
 
     function toggleFav(e) {
         setIsFavorited(!isFavorited);
@@ -64,34 +44,19 @@ function SongCard({ song, favs, set }) {
                         Range: {song.lowest_note}-{song.highest_note}
                     </p>
                     <p>Artist: {song.artist.name}</p>
-                    <p>Song: {song.genre.name}</p>
+                    <p>Genre: {song.genre.name}</p>
                 </div>
-                {/* <div
-                        // href="#"
-                        className="btn btn-outline-secondary"
-                        onClick={() => {
-                            setIsFavorited(!isFavorited)
-                            createFavorite()
-                        }}
-                        // className="emoji-button favorite active"
-                    >
-                        {isFavorited ? "★" : "☆"}
-                </div> */}
                 {isFavorited ? (
                     <button
-                        // href="#"
                         className="btn btn-outline-secondary"
                         onClick={toggleFav}
-                        // className="emoji-button favorite active"
                     >
                         ★
                     </button>
                     ) : (
                     <button
-                        // href="#"
                         className="btn btn-outline-secondary"
                         onClick={toggleFav}
-                        // className="emoji-button favorite"
                     >
                         ☆
                     </button>

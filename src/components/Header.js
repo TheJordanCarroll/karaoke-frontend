@@ -54,6 +54,11 @@ function Header() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
+                <Link to="/pitchpage">Pitch Page</Link>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 <Link to="/login">Log Out</Link>
               </a>
             </li>

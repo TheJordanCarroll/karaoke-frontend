@@ -79,14 +79,6 @@ function FavoriteSongCard({ fav, onDeleteFavorite, setFavSongs, fav_songs, onUpd
             </form>
         );
     }
-    //     {
-    //         method: "DELETE",
-    //     })
-    //         .then((r) => r.json())
-    //         .then(() => {
-    //             onDeleteFavorite(id);
-    //         });
-    // }
     let noteSection;
     if (note == null) {
         noteSection = noNote();
@@ -103,25 +95,9 @@ function FavoriteSongCard({ fav, onDeleteFavorite, setFavSongs, fav_songs, onUpd
                 />
                 <div className="card-body">
                     <h4 className="card-title">{fav.song.name}</h4>
-                    {/* <h4 className="card-title">{fav.id}</h4> */}
                     <p className="card-text">
                         Range: {fav.song.lowest_note}-{fav.song.highest_note}
                     </p>
-                    {/* <p className="card-text">
-                        Notes: {note}
-                    </p> */}
-                    {/* <form onSubmit={handleNoteFormSubmit}>
-                        <input
-                            type="text"
-                            placeholder="Add or Update note..."
-                            value={updatedNote}
-                            onChange={(e) => setUpdatedNote(e.target.value)}
-                        />
-                        <div>
-                        <button type="submit" className="btn btn-outline-secondary">Add a Note</button>
-                        <button type="submit" onClick={handleDeleteNote} className="btn btn-outline-secondary">Delete Note</button>
-                        </div>
-                    </form> */}
                     {noteSection}
                     <button onClick={handleDelete} className="btn btn-outline-secondary">
                         Delete Favorite Song
