@@ -48,7 +48,7 @@ function App({ song }) {
       <Header />
       <Switch>
         <Route exact path="/home">
-          <Home fav_songs={favSongs} set_fav_songs={setFavSongs} songs={songs}/>
+          <Home fav_songs={favSongs} set_fav_songs={setFavSongs} songs={songs} set_songs={setSongs}/>
         </Route>
         <Route exact path="/favorite_songs">
           <FavoriteSongs onUpdateFav={handleUpdateFav} fav_songs={favSongs} setFavSongs={setFavSongs} />

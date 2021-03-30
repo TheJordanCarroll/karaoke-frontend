@@ -1,7 +1,7 @@
 import React, { useState, Link } from "react";
 import SongCard from "./SongCard.js";
 
-function Home({ songs, fav_songs, set_fav_songs, song }) {
+function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
     const [year, setYear] = useState(null);
     const [tempo, setTempo] = useState(null);
     const [name, setName] = useState(null);
@@ -122,7 +122,7 @@ function Home({ songs, fav_songs, set_fav_songs, song }) {
       </div>
       <div className="row padding">
         {songsToDisplay.map((song) => {
-          return <SongCard key={song.id} song={song} favs={fav_songs} set={set_fav_songs} />;
+          return <SongCard key={song.id} song={song} favs={fav_songs} set={set_fav_songs} songs={songs} set_songs={set_songs} />;
         })}
       </div>
     </div>
