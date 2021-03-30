@@ -99,9 +99,9 @@ function PitchPage() {
 export default PitchPage;
 
 // ~~ Closest Hertz ~~ //
-// const meanFrequency = 27.98;
+// let meanFrequency = 27.98;
 
-// const closestPitch = hertzArray.reduce((a, b) => {
+// let closestPitch = hertzArray.reduce((a, b) => {
 //     return Math.abs(b - meanFrequency) < Math.abs(a - meanFrequency) ? b : a;
 // });
 
