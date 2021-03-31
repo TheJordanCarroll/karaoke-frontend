@@ -18,8 +18,8 @@ function FavoriteSongs({ fav_songs, setFavSongs, onUpdateFav }) {
     // ));
 
     return (
-        <div className="container-fluid padding">
-            <div className="row padding">
+        <div className="container-fluid padding fav-container">
+            <div className="row padding fav-row">
                 {/* {fav_songs.map((fav) => {
                     return (
                         <FavoriteSongCard

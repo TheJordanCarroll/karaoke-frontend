@@ -24,21 +24,33 @@ function SongPage({ song }) {
     return (
         individualSong.artist && individualSong.genre ?
         <div>
-            <div className="container-fluid padding">
-                <div className="row padding">
-                    <div className="col-lg-6">
+            {/* <div class="jumbotron jumbotron-fluid sp-jumbotron"> */}
+            <div class="card song-page">
+            <div className="container-fluid padding song-page">
+                <div className="row padding song-page">
+                    <div className="col-8">
                         <h2>Song Information</h2>
-                        <img src={individualSong.artist.image} className="img-fluid" />
-                        <p>Song Name: {individualSong.name}</p>
-                        <p>Artist: {individualSong.artist.name}</p>
-                        <p>Artist Gender: {individualSong.artist_gender}</p>
-                        <p>Range: {individualSong.lowest_note}-{individualSong.highest_note}</p>
-                        <p>Genre: {individualSong.genre.name}</p>
-                        <p>Release Year: {individualSong.year}</p>
-                        <p>Tempo: {individualSong.tempo}tempo</p>
-                        <p>Key: {individualSong.key}</p>
+                        {/* <img src={individualSong.artist.image} className="img-fluid" /> */}
+                        <div class="row">
+                        <div class="col">
+                        <p><h6>Song Name:</h6> {individualSong.name}</p>
+                        <p><h6>Artist:</h6> {individualSong.artist.name}</p>
+                        <p><h6>Artist Gender:</h6> {individualSong.artist_gender}</p>
+                        <p><h6>Range:</h6> {individualSong.lowest_note}-{individualSong.highest_note}</p>
+                        </div>
+                        <div class="col">
+                        <p><h6>Genre:</h6> {individualSong.genre.name}</p>
+                        <p><h6>Release Year:</h6> {individualSong.year}</p>
+                        <p><h6>Tempo:</h6> {individualSong.tempo}tempo</p>
+                        <p><h6>Key:</h6> {individualSong.key}</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                    <img src={individualSong.image} className="img-fluid song-page" />
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         : null

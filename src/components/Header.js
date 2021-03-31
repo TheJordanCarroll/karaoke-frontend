@@ -29,7 +29,12 @@ function Header() {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
               <a className="nav-link" href="#">
-                <Link to="/home">Home</Link>
+                <Link to="/home">Find a Song</Link>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <Link to="/pitchpage">Range Finder</Link>
               </a>
             </li>
             <li className="nav-item">
@@ -47,16 +52,11 @@ function Header() {
                 <Link to="/find_karaoke">Find Karaoke</Link>
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">
                 <Link to="/practice">Practice</Link>
               </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                <Link to="/pitchpage">Pitch Page</Link>
-              </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <Link to="/login">Log Out</Link>

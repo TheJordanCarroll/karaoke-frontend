@@ -53,7 +53,7 @@ function FavoriteSongCard({ fav, onDeleteFavorite, setFavSongs, fav_songs, onUpd
                     onChange={(e) => setUpdatedNote(e.target.value)}
                 />
                 <div>
-                <button type="submit" className="btn btn-outline-secondary">Add</button>
+                <button type="submit" className="btn btn-outline-secondary add-btn">Add</button>
                 </div>
             </form>
         );
@@ -73,8 +73,8 @@ function FavoriteSongCard({ fav, onDeleteFavorite, setFavSongs, fav_songs, onUpd
                     onChange={(e) => setUpdatedNote(e.target.value)}
                 />
                 <div>
-                <button type="submit" className="btn btn-outline-secondary">Update</button>
-                <button type="submit" onClick={handleDeleteNote} className="btn btn-outline-secondary">Delete Note</button>
+                <button type="submit" className="btn btn-outline-secondary update-btn">Update</button>
+                <button type="submit" onClick={handleDeleteNote} className="btn btn-outline-secondary note-delete-btn">Delete Note</button>
                 </div>
             </form>
         );
@@ -87,19 +87,19 @@ function FavoriteSongCard({ fav, onDeleteFavorite, setFavSongs, fav_songs, onUpd
     }
 
     return (
-        <div className="col-md-4">
-            <div className="card">
+        <div className="col-md-3">
+            <div className="card fav">
                 <img
-                    className="card-img-top"
+                    className="card-img-top fav-image"
                     src={fav.song.image}
                 />
                 <div className="card-body">
                     <h4 className="card-title">{fav.song.name}</h4>
                     <p className="card-text">
-                        Range: {fav.song.lowest_note}-{fav.song.highest_note}
+                        Vocal Range: {fav.song.lowest_note}-{fav.song.highest_note}
                     </p>
                     {noteSection}
-                    <button onClick={handleDelete} className="btn btn-outline-secondary">
+                    <button onClick={handleDelete} className="btn btn-outline-primary delete-btn">
                         Delete Favorite Song
                     </button>  
                 </div>

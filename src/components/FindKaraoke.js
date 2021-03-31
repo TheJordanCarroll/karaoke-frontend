@@ -32,7 +32,7 @@ import React, {useContext} from 'react'
 import { GoogleMap, useJsApiLoader, Marker, MarkerClusterer } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '700px',
+  width: '100%',
   height: '400px'
 };
 
@@ -86,6 +86,7 @@ function FindKaraoke() {
   }, [])
 
   return isLoaded ? (
+    <div className="map-div">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -95,6 +96,7 @@ function FindKaraoke() {
       >
           {markerArray}
       </GoogleMap>
+    </div>
   ) : <></>
 }
 

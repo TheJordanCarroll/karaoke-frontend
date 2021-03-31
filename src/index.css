@@ -61,9 +61,9 @@ html, body {
 .jumbotron {
   padding: 1rem;
   border-radius: 0;
-  width: 50%;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 100%;
+  /* margin-left: 25%;
+  margin-right: 25%; */
 
 }
 .padding {
@@ -127,10 +127,122 @@ html, body {
   color: #d5d5d5;
 }
 .filter {
-  width: 18%
+  width: 75%;
 }
 .year {
-  width: 18%
+  width: 75%;
+}
+.song-card {
+  width: 100%;
+}
+.favorite-button {
+  margin-left: 95%;
+}
+.genre {
+  width: 75%;
+}
+.rap-sing {
+  width: 75%;
+}
+.li-img {
+  max-height: 7.8rem;
+  max-width: auto;
+}
+.card-row {
+  padding-bottom: 0%;
+}
+.home-container {
+  padding-bottom: 0rem;
+}
+.home-row {
+  padding-bottom: 0rem;
+}
+.right-col {
+  padding-bottom: 0rem;
+  margin-bottom: 0rem;
+}
+.left-col {
+  padding-bottom: 0rem;
+  margin-bottom: 0rem;
+}
+.col-10.lucky {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+.col-2.lucky {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+.ul-item {
+  padding-bottom: 0rem;
+  padding-top: 0rem;
+
+}
+.footer-container {
+  padding-bottom: .5rem;
+}
+.card-img-top.fav-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+.col-12.footer-container {
+  padding-bottom: .5rem;
+}
+.card.fav {
+/* height: 90%; */
+}
+.fav-row {
+  padding-bottom: 0rem;
+}
+.fav-container {
+  padding-bottom: 1rem;
+}
+.map-div {
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+/* .jumbotron.jumbotron-fluid.sp-jumbotron {
+  margin-left: 15%;
+  margin-right: 15%;
+} */
+.card.song-page {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: #E9ECF0;
+}
+.container-fluid.padding.song-page {
+  padding-bottom: 0%;
+}
+.row.padding.song-page {
+  padding-bottom: 0%;
+}
+.img-fluid.song-page {
+  /* padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%; */
+  /* max-width: 50rem;
+  max-height: auto; */
+  padding-top: 2%;
+}
+.btn.btn-outline-secondary.add-btn {
+  margin-top: .25rem;
+}
+.btn.btn-outline-primary.delete-btn {
+  margin-top: 1.25rem;
+}
+.btn.btn-outline-secondary.update-btn  {
+  margin-top: .25rem;
+}
+.btn.btn-outline-secondary.note-delete-btn {
+  margin-top: .25rem;
+}
+.lead.pitch-paragraph {
+  margin-left: 37%;
 }
 footer {
   background-color: #3f3f3f;
