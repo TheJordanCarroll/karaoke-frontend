@@ -10,6 +10,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SongPage from "./SongPage"
 import PitchPage from "./PitchPage"
+import LandingPage from "./LandingPage"
 
 
 function App({ song }) {
@@ -70,6 +71,9 @@ function App({ song }) {
         </Route>
         <Route exact path="/pitchpage">
           <PitchPage />
+        </Route>
+        <Route exact path="/landingpage">
+          <LandingPage />
         </Route>
       </Switch>
       <Footer />

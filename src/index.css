@@ -244,6 +244,9 @@ html, body {
 .lead.pitch-paragraph {
   margin-left: 37%;
 }
+.carousel.slide.landing-page {
+  /* max-height: 20rem; */
+}
 footer {
   background-color: #3f3f3f;
   color: #d5d5d5;

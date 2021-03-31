@@ -29,6 +29,11 @@ function Header() {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
               <a className="nav-link" href="#">
+                <Link to="/landingpage">Home</Link>
+              </a>
+            </li>
+            <li className="nav-item active">
+              <a className="nav-link" href="#">
                 <Link to="/home">Find a Song</Link>
               </a>
             </li>
