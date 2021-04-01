@@ -14,7 +14,7 @@ function PitchPage() {
   const [mic, setMic] = useState();
   const [pitch, setPitch] = useState();
   // const [stream, setStream] = useState()
-  const [frequency, setFrequency] = useState(100);
+  const [frequency, setFrequency] = useState(null);
   const [realNote, setRealNote] = useState("")
   const shouldBeListening = true;
   const hertzArray = [27.50, 29.13, 30.86, 32.70, 34.64, 36.70, 38.89, 41.20, 43.65, 46.24, 48.99, 51.91, 55.00, 58.27, 61.73, 65.40, 69.29, 73.41, 77.78, 82.40, 87.30, 92.49, 97.99, 103.82, 110.00, 116.54, 123.47, 130.81, 138.59, 146.83, 155.56, 164.81, 174.61, 184.99, 195.99, 207.65, 220.00, 233.08, 246.94, 261.62, 277.18, 293.66, 311.12, 329.62, 349.22, 369.99, 391.99, 415.30, 440.00, 466.16, 493.88, 523.25, 554.36, 587.32, 622.25, 659.25, 698.45, 739.98, 783.99, 830.60, 880.00, 932.32, 987.76, 1046.50,  1108.73, 1174.65, 1244.50, 1318.51, 1396.91, 1479.97, 1567.98, 1661.21, 1760.00, 1864.65, 1975.53, 2093.00, 2217.46, 2349.31, 2489.01, 2637.02, 2793.82, 2959.95, 3135.96, 3322.43, 3520.00, 3729.31, 3951.06, 4186.00]
@@ -68,7 +68,7 @@ function PitchPage() {
         console.log(f);
       } else {
         //   document.querySelector('#result').textContent = 'No pitch detected';
-        setFrequency("No pitch detected.");
+        setFrequency(null);
       }
     });
     
@@ -117,7 +117,10 @@ function PitchPage() {
       {/* <h1>Your Pitch</h1> */}
       {/* <p id="status">Loading Model...</p>
       <p id="result">No pitch detected</p> */}
-      <p class="lead pitch-paragraph">{hertzToNote(closestPitch)}</p>
+      {console.log(frequency, "this is the frequency")}
+      <div class="col-12">
+      <h2 class="display-4">{ frequency ? hertzToNote(closestPitch) : "" }</h2>
+      </div>
       {/* <h1>Find Your Vocal Range</h1>
     <h2>1. To find your lowest note, click the start button below, then sing your lowest note. The letter name of your lowest note will appear after three seconds. </h2>
     <button>Start</button>

@@ -16,6 +16,17 @@ import LandingPage from "./LandingPage"
 function App({ song }) {
   const [songs, setSongs] = useState([]);
   const [favSongs, setFavSongs] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  function handleLogin() {
+    fetch("http://localhost:3000/me")
+      .then((r) => r.json())
+      .then(setCurrentUser);
+  }
+
+  function handleLogout() {
+    setCurrentUser(null);
+  }
 
   useEffect(() => {
     fetch("http://localhost:3000/songs")
@@ -46,7 +57,7 @@ function App({ song }) {
 
   return (
     <div className="app">
-      <Header />
+      <Header handleLogout={handleLogout}/>
       <Switch>
         <Route exact path="/home">
           <Home fav_songs={favSongs} set_fav_songs={setFavSongs} songs={songs} set_songs={setSongs}/>
@@ -64,7 +75,7 @@ function App({ song }) {
           <Practice />
         </Route>
         <Route exact path="/login">
-          <Login />
+          <Login currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogin={handleLogin} handleLogout={handleLogout}/>
         </Route>
         <Route exact path="/songs/:id">
           <SongPage song={song}/>

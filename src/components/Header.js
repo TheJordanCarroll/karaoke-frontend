@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ handleLogout }) {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light sticky-top">
       <div className="container-fluid">
+      <h1>miku</h1>
       {/* <img
             src="https://i.ibb.co/z5g62xh/Screen-Shot-2021-03-11-at-9-17-50-AM.png"
             alt="logooooo"
@@ -64,7 +65,7 @@ function Header() {
             </li> */}
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link to="/login">Log Out</Link>
+                <Link to="/login" onClick={handleLogout}>Log Out</Link>
               </a>
             </li>
           </ul>

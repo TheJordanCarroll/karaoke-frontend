@@ -6,46 +6,51 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
     const [tempo, setTempo] = useState(null);
     const [name, setName] = useState(null);
     const [rapSing, setRapSing] = useState(null);
-    const [genreName, setGenreName] = useState(null);
+    const [genreName, setGenreName] = useState("All");
     const [artistName, setArtistName] = useState(null);
-    const [lowPitch, setLowPitch] = useState(null);
+    const [lowPitch, setLowPitch] = useState("");
     const [highPitch, setHighPitch] = useState(null);
     const [pagSongs, setPagSongs] = useState([]);
     const [pagNum, setPagNum] = useState(1);
     const [isDisabled, setDisabled] = useState(false);
     const [disabledNext, setDisabledNext] = useState(false);
+    const [songMetaData, setSongMetaData] = useState({});
+    const [paginatedSongs, setPaginatedSongs] = useState([])
+
 
     const fullRange = ["A0", "A#0", "B0", "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1", "G#1", "A1", "A#1", "B1", "C2", "C#2", "D2", "D#2", "E2", "F2", "F#2", "G2", "G#2", "A2", "A#2", "B2", "C3", "C#3", "D3", "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3", "A#3", "B3", "C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4", "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5", "C6", "C#6", "D6", "D#6", "E6", "F6", "F#6", "G6", "G#6", "A6", "A#6", "B6", "C7", "C#7", "D7", "D#7", "E7", "F7", "F#7", "G7", "G#7", "A7", "A#7", "B7", "C8"]
     
+    // useEffect(() => {
+    //   const numOfSongs = pagNum * 4 
+    //   if(numOfSongs >= songs.length){
+    //     setDisabledNext(true)
+    //   }else {
+    //     setDisabledNext(false)
+    //   }
+     
+    //   if(pagNum === 1 ){
+    //     setDisabled(true)
+    //   }else{
+    //     setDisabled(false)
+    //   }
+
+    //   const starting = numOfSongs - 4
+    //   const slicedSongs = songs.slice(starting, numOfSongs)
+    //   setPagSongs(slicedSongs)
+    // }, [songs, pagNum]);
+
+    // function pitchToNote(pitch){
+    //   return fullRange[pitch - 1]
+    // }
+
     useEffect(() => {
-      const numOfSongs = pagNum * 4  //18 songs //15  //4 => 20
-      //check if we reached end then exit
-      if(numOfSongs >= songs.length){
-        // const prevTotal =  numOfSongs - 5 
-        // const showRemaning = songs.length   //18 //20
-        setDisabledNext(true)
-      }else {
-        setDisabledNext(false)
-      }
-     
-      //checking if we reached beg of pagination
-      if(pagNum === 1 ){
-        setDisabled(true)
-      }else{
-        setDisabled(false)
-      }
-
-      const starting = numOfSongs - 4
-      const slicedSongs = songs.slice(starting, numOfSongs)
-      setPagSongs(slicedSongs)
-     
-      // num of songs represents the index we are starting at
-      // ,4 
-    }, [songs, pagNum]);
-
-    function pitchToNote(pitch){
-      return fullRange[pitch - 1]
-    }
+      fetch(`http://localhost:3000/search?page=${pagNum}&genre=${genreName}&lowpitch=${lowPitch}`)
+        .then((r) => r.json())
+        .then((songData) => {
+          setPaginatedSongs(songData.songs);
+          setSongMetaData(songData.meta_data)
+        });
+    }, [pagNum, genreName, lowPitch]);
 
     function noteToPitch(note){
         if(note.includes('b')){
@@ -56,47 +61,47 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
         }
     }
 
-    let songsToDisplay = [...pagSongs]
-    if(year) {
-        songsToDisplay = songsToDisplay.filter(song => {
-            return song.year === year
-        })
-    }
-    if(tempo) {
-      songsToDisplay = songsToDisplay.filter(song => {
-          return song.tempo === tempo
-      })
-  }
-    if(name) {
-        songsToDisplay = songsToDisplay.filter(song => {
-            return song.name.toLowerCase().includes(name.toLowerCase())
-        })
-    }
-    if(artistName) {
-      songsToDisplay = songsToDisplay.filter(song => {
-          return song.artist.name.toLowerCase().includes(artistName.toLowerCase())
-      })
-    }
-    if(lowPitch) {
-      songsToDisplay = songsToDisplay.filter(song => {
-        return song.lowest_pitch >= parseInt(lowPitch)
-    })
-    }
-    if(highPitch) {
-      songsToDisplay = songsToDisplay.filter(song => {
-        return song.highest_pitch <= parseInt(highPitch)
-    })
-    }
-    if(genreName) {
-      songsToDisplay = songsToDisplay.filter(song => {
-        return song.genre.name.toLowerCase().includes(genreName.toLowerCase())
-    })
-    }
-    if(rapSing) {
-      songsToDisplay = songsToDisplay.filter(song => {
-        return song.rap_sing === rapSing
-    })
-    }
+  //   let songsToDisplay = [...paginatedSongs]
+  //   if(year) {
+  //       songsToDisplay = songsToDisplay.filter(song => {
+  //           return song.year === year
+  //       })
+  //   }
+  //   if(tempo) {
+  //     songsToDisplay = songsToDisplay.filter(song => {
+  //         return song.tempo === tempo
+  //     })
+  // }
+  //   if(name) {
+  //       songsToDisplay = songsToDisplay.filter(song => {
+  //           return song.name.toLowerCase().includes(name.toLowerCase())
+  //       })
+  //   }
+  //   if(artistName) {
+  //     songsToDisplay = songsToDisplay.filter(song => {
+  //         return song.artist.name.toLowerCase().includes(artistName.toLowerCase())
+  //     })
+  //   }
+  //   if(lowPitch) {
+  //     songsToDisplay = songsToDisplay.filter(song => {
+  //       return song.lowest_pitch >= parseInt(lowPitch)
+  //   })
+  //   }
+  //   if(highPitch) {
+  //     songsToDisplay = songsToDisplay.filter(song => {
+  //       return song.highest_pitch <= parseInt(highPitch)
+  //   })
+  //   }
+  //   if(genreName) {
+  //     songsToDisplay = songsToDisplay.filter(song => {
+  //       return song.genre.name.toLowerCase().includes(genreName.toLowerCase())
+  //   })
+  //   }
+  //   if(rapSing) {
+  //     songsToDisplay = songsToDisplay.filter(song => {
+  //       return song.rap_sing === rapSing
+  //   })
+  //   }
 
   return (
     <div className="container-fluid padding home-container">
@@ -128,9 +133,10 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           onChange={(e) => {
             const val = e.target.value;
             setGenreName(val);
+            setPagNum(1)
           }}
         >
-          <option selected value="">
+          <option selected value="All">
             All
           </option>
           <option value="Synth-pop">Synth-pop</option>
@@ -344,7 +350,7 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
       </div>
       <div class="col-lg-8 right-col">
       <ul class="list-group">
-        {songsToDisplay.map((song) => {
+        {paginatedSongs.map((song) => {
           console.log(song)
           return (
             <SongCard
@@ -361,13 +367,18 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
 
       <nav aria-label="...">
         <ul className="pagination">
-          <li className={isDisabled ? "page-item disabled": "page-item"}>
-            <button class="page-link" onClick ={ () => setPagNum(pagNum-1)}>
+          <li className={!songMetaData.previous_page ? "page-item disabled": "page-item"}>
+            <button class="page-link" onClick ={ () => setPagNum(songMetaData.previous_page)}>
               Previous
             </button>
           </li>
-          <li className={disabledNext ? "page-item disabled": "page-item"}>
-            <button class="page-link" onClick ={ () => setPagNum(pagNum+1)}>
+          {/* <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active">
+          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li> */}
+          <li className={!songMetaData.next_page ? "page-item disabled": "page-item"}>
+            <button class="page-link" onClick ={ () => setPagNum(songMetaData.next_page)}>
               Next
             </button>
           </li>
