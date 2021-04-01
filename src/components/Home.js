@@ -2,21 +2,20 @@ import React, { useState, Link, useEffect } from "react";
 import SongCard from "./SongCard.js";
 
 function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
-    const [year, setYear] = useState(null);
-    const [tempo, setTempo] = useState(null);
-    const [name, setName] = useState(null);
-    const [rapSing, setRapSing] = useState(null);
+    const [year, setYear] = useState("All");
+    const [tempo, setTempo] = useState("All");
+    const [name, setName] = useState("");
+    const [rapSing, setRapSing] = useState("All");
     const [genreName, setGenreName] = useState("All");
-    const [artistName, setArtistName] = useState(null);
-    const [lowPitch, setLowPitch] = useState("");
-    const [highPitch, setHighPitch] = useState(null);
+    const [artistName, setArtistName] = useState("");
+    const [lowPitch, setLowPitch] = useState(0);
+    const [highPitch, setHighPitch] = useState(99);
     const [pagSongs, setPagSongs] = useState([]);
     const [pagNum, setPagNum] = useState(1);
     const [isDisabled, setDisabled] = useState(false);
     const [disabledNext, setDisabledNext] = useState(false);
     const [songMetaData, setSongMetaData] = useState({});
     const [paginatedSongs, setPaginatedSongs] = useState([])
-
 
     const fullRange = ["A0", "A#0", "B0", "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1", "G#1", "A1", "A#1", "B1", "C2", "C#2", "D2", "D#2", "E2", "F2", "F#2", "G2", "G#2", "A2", "A#2", "B2", "C3", "C#3", "D3", "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3", "A#3", "B3", "C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4", "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5", "C6", "C#6", "D6", "D#6", "E6", "F6", "F#6", "G6", "G#6", "A6", "A#6", "B6", "C7", "C#7", "D7", "D#7", "E7", "F7", "F#7", "G7", "G#7", "A7", "A#7", "B7", "C8"]
     
@@ -44,13 +43,14 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
     // }
 
     useEffect(() => {
-      fetch(`http://localhost:3000/search?page=${pagNum}&genre=${genreName}&lowpitch=${lowPitch}`)
+      console.log(`http://localhost:3000/search?page=${pagNum}&genre=${genreName}&lowpitch=${lowPitch}&highpitch=${highPitch}&songname=${name}&artistname=${artistName}&speed=${tempo}&year=${year}&rapsing=${rapSing}`)
+      fetch(`http://localhost:3000/search?page=${pagNum}&genre=${genreName}&lowpitch=${lowPitch}&highpitch=${highPitch}&songname=${name}&artistname=${artistName}&speed=${tempo}&year=${year}&rapsing=${rapSing}`)
         .then((r) => r.json())
         .then((songData) => {
           setPaginatedSongs(songData.songs);
           setSongMetaData(songData.meta_data)
         });
-    }, [pagNum, genreName, lowPitch]);
+    }, [pagNum, genreName, lowPitch, highPitch, name, artistName, tempo, year, rapSing]);
 
     function noteToPitch(note){
         if(note.includes('b')){
@@ -121,6 +121,7 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           onChange={(e) => {
             const val = e.target.value;
             setName(val);
+            setPagNum(1);
           }}
         />
         <div>
@@ -133,7 +134,7 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           onChange={(e) => {
             const val = e.target.value;
             setGenreName(val);
-            setPagNum(1)
+            setPagNum(1);
           }}
         >
           <option selected value="All">
@@ -160,10 +161,11 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           aria-label="Default select example"
           onChange={(e) => {
             const val = e.target.value;
-            setYear(parseInt(val));
+            setYear(val);
+            setPagNum(1);
           }}
         >
-          <option selected value="">
+          <option selected value="All">
             All
           </option>
           <option value="2020">2020</option>
@@ -182,6 +184,7 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           onChange={(e) => {
             const val = e.target.value;
             setArtistName(val);
+            setPagNum(1);
           }}
         />
         <div>
@@ -194,9 +197,10 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           onChange={(e) => {
             const val = e.target.value;
             setTempo(val);
+            setPagNum(1);
           }}
         >
-          <option selected value="">
+          <option selected value="All">
             All
           </option>
           <option value="Up">Fast</option>
@@ -213,9 +217,10 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           onChange={(e) => {
             const val = e.target.value;
             setRapSing(val);
+            setPagNum(1);
           }}
         >
-          <option selected value="">
+          <option selected value="All">
             All
           </option>
           <option value="Rap">Rapping</option>
@@ -332,6 +337,7 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           id="lowestNoteInput"
           onChange={(e) => {
             setLowPitch(noteToPitch(e.target.value));
+            setPagNum(1);
           }}
         />
         </div>
@@ -341,7 +347,9 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
           class="form-control filter"
           id="highestNoteInput"
           onChange={(e) => {
-            setHighPitch(noteToPitch(e.target.value));
+            // setHighPitch(noteToPitch(e.target.value));
+            setHighPitch(!e.target.value.length ? 99 : noteToPitch(e.target.value));
+            setPagNum(1);
           }}
         />
         </div>
@@ -372,6 +380,9 @@ function Home({ songs, fav_songs, set_fav_songs, song, set_songs }) {
               Previous
             </button>
           </li>
+          {[...Array(songMetaData.total_pages).keys()].map(pageIndex => {
+            return <li className={pagNum === pageIndex +1 ? "page-item disabled" : "page-item"}><a onClick ={ () => setPagNum(pageIndex + 1)} class="page-link" href="#">{pageIndex + 1}</a></li>
+          })}
           {/* <li class="page-item"><a class="page-link" href="#">1</a></li>
           <li class="page-item active">
           <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
