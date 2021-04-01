@@ -5,15 +5,14 @@ function Header({ handleLogout }) {
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light sticky-top">
       <div className="container-fluid">
-      <h1>miku</h1>
-      {/* <img
-            src="https://i.ibb.co/z5g62xh/Screen-Shot-2021-03-11-at-9-17-50-AM.png"
-            alt="logooooo"
+      {/* <h1>miku</h1> */}
+      <img
+            src="https://i.ibb.co/z5315Pj/Screen-Shot-2021-04-01-at-1-46-07-AM.png"
+            alt="logo"
             width="auto"
-            height="100rem"
-            classname="logologo"
-            border-radius= "5px;"
-          /> */}
+            height="75rem"
+            classname="miku-logo"
+          />
         {/* <a href="" className="navbar-brand" href="#">
           <img src="https://i.ibb.co/z5g62xh/Screen-Shot-2021-03-11-at-9-17-50-AM.png" alt="logo" width="auto"
             height="60rem" />
@@ -30,32 +29,32 @@ function Header({ handleLogout }) {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
               <a className="nav-link" href="#">
-                <Link to="/landingpage">Home</Link>
+                <Link to="/landingpage">home</Link>
               </a>
             </li>
             <li className="nav-item active">
               <a className="nav-link" href="#">
-                <Link to="/home">Find a Song</Link>
+                <Link to="/home">find a song</Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link to="/pitchpage">Range Finder</Link>
+                <Link to="/pitchpage">range finder</Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link to="/favorite_songs">Favorite Songs</Link>
+                <Link to="/favorite_songs">favorite songs</Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link to="/record">Record</Link>
+                <Link to="/record">record</Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link to="/find_karaoke">Find Karaoke</Link>
+                <Link to="/find_karaoke">find karaoke</Link>
               </a>
             </li>
             {/* <li className="nav-item">
@@ -63,11 +62,11 @@ function Header({ handleLogout }) {
                 <Link to="/practice">Practice</Link>
               </a>
             </li> */}
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link to="/login" onClick={handleLogout}>Log Out</Link>
+                <Link to="/login" onClick={handleLogout}>log out</Link>
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

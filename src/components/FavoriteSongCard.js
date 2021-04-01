@@ -96,7 +96,7 @@ function FavoriteSongCard({ fav, onDeleteFavorite, setFavSongs, fav_songs, onUpd
                 <div className="card-body">
                     <h4 className="card-title">{fav.song.name}</h4>
                     <p className="card-text">
-                        Vocal Range: {fav.song.lowest_note}-{fav.song.highest_note}
+                        {fav.song.year}
                     </p>
                     {noteSection}
                     <button onClick={handleDelete} className="btn btn-outline-primary delete-btn">

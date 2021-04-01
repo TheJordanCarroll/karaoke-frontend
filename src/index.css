@@ -41,19 +41,19 @@ html, body {
   height: 100%
 }
 .carousel-caption {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  /* position: absolute; */
+  top: 27%;
+  /* transform: translateY(-50%); */
 }
 .carousel-caption h1 {
-  font-size: 500%;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 15px #000;
+  /* font-size: 500%; */
+  /* text-transform: uppercase; */
+  /* text-shadow: 1px 1px 15px #000; */
 }
 .carousel-caption h3 {
-  font-size: 200%;
-  font-weight: 500;
-  text-shadow: 1px 1px 10px #000;
+  /* font-size: 200%; */
+  /* font-weight: 500; */
+  /* text-shadow: 1px 1px 10px #000; */
   /* padding-bottom: 1rem; */
 }
 .btn-primary {
@@ -252,6 +252,9 @@ html, body {
 }
 .carousel.slide.landing-page {
   /* max-height: 20rem; */
+  /* width: 50%; */
+  padding-left: 12rem;
+  padding-right: 12rem;
 }
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -289,6 +292,35 @@ html, body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.carousel-control-prev.previous-control {
+  margin-left: 8rem;
+}
+.carousel-control-next.next-control {
+  margin-right: 8rem;
+}
+.carousel-caption.d-none.d-md-block {
+  color:#0056B3;
+}
+.carousel-paragraph-subtitle {
+  color: #5637B5;
+}
+/* .miku-logo-container {
+  height: 20rem;
+  width: auto;
+} */
+/* .d-block.w-100.carousel-pic {
+  width: 50%;
+}
+.carousel-item.active.carousel-div {
+  width: 50%;
+}
+.carousel-inner.top-carousel-div {
+  width: 50%;
+} */
+/* .carousel-indicators.carousel-ol {
+  padding-left: 20rem;
+  padding-right: 20rem;
+} */
 footer {
   background-color: #3f3f3f;
   color: #d5d5d5;
@@ -325,12 +357,12 @@ hr.light-100 {
     top: 45%;
   }
   .carousel-caption h1 {
-    font-size: 350%;
+    /* font-size: 350%; */
   }
   .carousel-caption h3 {
-    font-size: 140%;
-    font-weight: 400;
-    padding-bottom: .2rem;
+    /* font-size: 140%; */
+    /* font-weight: 400; */
+    /* padding-bottom: .2rem; */
   }
   .carousel-caption .btn {
     font-size: 95%;
@@ -349,17 +381,17 @@ hr.light-100 {
     top: 40%;
   }
   .carousel-caption h1 {
-    font-size: 250%;
+    /* font-size: 250%; */
   }
   .carousel-caption h3 {
-    font-size: 110%;
+    /* font-size: 110%; */
   }
   .carousel-caption .btn {
     font-size: 90%;
     padding: 4px 8px;
   }
   .carousel-indicators {
-    display: none;
+    /* display: none; */
   }
   .display-4 {
     font-size: 160%;
